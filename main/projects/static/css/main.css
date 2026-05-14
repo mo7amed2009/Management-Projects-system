@@ -1,0 +1,117 @@
+/* Reset بسيط */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1e2a38;
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Container */
+.container {
+    width: 60%;
+    margin: 40px auto;
+}
+
+/* Card */
+.card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Title */
+.card h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Profile Info */
+.profile-info p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+}
+
+/* Inputs */
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Textarea */
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Submit button */
+button {
+    margin-top: 10px;
+}

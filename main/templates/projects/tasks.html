@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block contant %}
+<table>
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in task %}
+        <tr>
+            <td><a href="{% url 'task' task.group.project.id task.group.id member.id %}">{{task}}</a></td>
+            {% if user.position in 'manager,senior' %}
+            <td><a href="{% url 'update_task' task.group.project.id task.group.id task.id %}">{{task}}</a></td>
+            {% else %}
+            <td>Not Access</td>
+            {% endif %}
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+
+{% if user.position in 'manager,senior' %}
+<div>
+    <button><a href="{% url 'add_task' %}">Add Task</a></button>
+</div>
+{% endif %}
+
+{% endblock contant %}

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+                    <script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+    </html>
+            <meta charset="UTF-8">
+             <title>{% block title %}{% endblock %}</title>
+             <link rel="stylesheet" href="{% static 'css/nav.css' %}">                  
+             <link rel="stylesheet" href="{% static 'css/main.css' %}">                  
+             <link rel="stylesheet" href="{% static 'css/table.css' %}">                  
+
+        </head>
+        <body>
+            {% include 'parts\nav.html' %}
+            
+                {% block contant %}
+
+                {% endblock contant %}
+        
+        </body>

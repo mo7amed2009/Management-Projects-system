@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block contant %}
+<div>
+<!-- <nav class="breadcrumb active">
+  <a href="#">Projects</a>
+  <span >/</span>
+  
+</nav> -->
+</div>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Project Names</th>
+                <th>Manger</th>
+                <th>Groups</th>
+                <th>Member</th>
+                <th>The Project Date</th>
+                <th>Uptade</th>
+            </tr>
+            <tbody>
+                {% for project in projects %}
+                <tr>
+                    <td><a class="project-link" href="{% url 'groups' project.id %}">{{project.name}}</a>
+                    <small class="project-desc">{{project.description}}</small></td>
+                    <td>{{project.manager}}</td> 
+                    <td>{{project.count_group}}</td>
+                    <td>30</td>
+                    <td>{{project.created_date}}</td>
+                    {% if user.position in 'manager,senior' %}
+                    <td><a href="{% url 'update_project' project.id %}">{{project.name}}</a></td>
+                    {% else %}
+                    <td>Not Access</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </thead>
+    </table>
+</div>
+<div>
+    <button><a href="{% url 'add_project' %}">Craete Project</a></button>
+</div>
+<div>
+    <ul>
+    {% if projects.has_previous %}
+    <li><a href="?page={{projects.previous_page_number}}">Previous</a></li>
+    {% endif %}
+    {% for num in projects.paginator.page_range %}
+    {% if num == projects.number %}
+    <li>{{num}} (Current)</li>
+    {% else %}
+    <li><a href="?page={{num}}">{{num}}</a></li>
+    {% endif %}
+    {% endfor %}
+    {% if projects.has_next %}
+    <li><a href="?page={{projects.next_page_number}}">Next</a></li>
+    {% endif %}
+    </ul>
+</div> 
+<form method="GET">
+    {{filter.form}}
+    <button type="submit">Filter</button>
+</form>
+{% endblock contant %}

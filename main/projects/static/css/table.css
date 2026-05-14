@@ -1,0 +1,59 @@
+table {
+    width: 80%;              /* صغر العرض */
+    margin: 20px auto;       /* في النص */
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 14px;         /* تصغير الخط */
+}
+
+/* الهيدر */
+thead {
+    background-color: #555;  /* رمادي */
+    color: white;
+}
+
+thead th {
+    padding: 8px;            /* أصغر */
+    text-align: left;
+}
+
+/* الصفوف */
+tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: 0.2s;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* الأعمدة */
+td {
+    padding: 8px;            /* أصغر */
+}
+
+/* zebra effect */
+tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* شكل عام */
+table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.project-link {
+    display: block;
+    font-weight: bold;
+    color: rgb(37, 20, 184);
+    margin-bottom: 4px;
+}
+
+.project-desc {
+    display: block;
+    color: #555;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}

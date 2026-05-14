@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block contant %}
+<!-- <nav class="breadcrumb">
+  <a href="#">الرئيسية</a>
+  <span>/</span>
+  <a href="#">المنتجات</a>
+  <span>/</span>
+  <a href="#">موبايلات</a>
+  <span>/</span>
+  <span class="active">آيفون 15</span>
+</nav> -->
+<table>
+    <thead>
+        <tr>
+            <th>  Name Of Group  </th>
+            <th>Project Of Group</th>
+            <th>Date Of Group</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for group in groups %}
+        <tr>
+            <td><a class="project-link" href="{% url 'member_group' group.project.id group.id %}">{{group.name}}</a>
+                <small class="project-desc">{{group.description}}</small>
+            </td>
+            <td>{{group.project}}
+            </td>
+            <td>{{group.create_date}}</td>
+            {% if user.position in 'manager,senior' %}
+            <td><a href="{% url 'update_group' group.project.id group.id %}">{{group.name}}</a></td>
+            {% else %}
+            <td> Not Access</td>
+            {% endif %}
+        </tr>
+{% endfor %}
+
+    </tbody>
+</table>
+{% if user.position in 'manager,senior' %}
+<div>
+    <button><a href="{% url 'add_group' %}">Add Group</a></button>
+</div>
+{% endif %}
+<ul>
+    {% if groups.has_previous %}
+    <li><a href="?page={{groups.previous_page_number}}">Privious</a></li>
+    {% endif %}
+    {% for num in groups.paginator.page_range %}
+    {% if num == groups.number %}
+    <li>{{num}} /</li>
+    {% else %}
+    <li><a href="?page={{num}}">{{num}}</a></li>
+    {% endif %}
+    {% endfor %}
+    {% if groups.has_next %}
+    <li><a href="?page={{groups.next_page_number}}">Next</a></li>
+    {% endif %}
+</ul>
+{% endblock contant %}

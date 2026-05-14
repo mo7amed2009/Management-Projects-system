@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block contant %}
+
+
+<div class="container">
+    <div class="card">
+        <h2>My Profile</h2>
+
+        <div class="profile-info">
+            <p><strong>Email:</strong>  {{user.email}}</p> 
+            {% if user.position  %}
+            <p><strong>Position:</strong>  {{user.position}}</p> 
+            {% else %}
+            <p><strong>Position:</strong><i> Not Enterd</i></p> 
+            {% endif %}
+
+            <p><strong>Username:</strong>  {{user.username}}</p>
+
+            {% if profile.last_name %}
+            <p><strong>Last Name:</strong>  {{profile.last_name}}</p>
+            {% else %}
+            <p><strong>ALias Name:</strong><i> Not Enterd </i></p>
+            {% endif %}
+
+            {% if profile.address %}
+            <p><strong>Adress:</strong>  {{profile.address}}</p>
+            {% else %}
+            <p><strong>Adress:</strong><i> Not Enterd</i></p>
+            {% endif %}
+
+            {% if profile.phone %}
+            <p><strong>Phone Number:</strong>  {{profile.phone}}</p> 
+            {% else %}
+            <p><strong>Phone Number:</strong><i> Not Enterd</i></p> 
+            {% endif %}
+
+        </div>
+
+        <a href="{% url 'edit_profile' %}" class="btn">Edit Profile</a>
+    </div>
+</div>
+
+<!-- <div>
+    <a href="{% url 'edit_profile' %}">Edit My Profile</a>
+</div> -->
+{% endblock contant %}

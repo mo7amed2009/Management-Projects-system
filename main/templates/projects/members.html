@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block contant %}
+<table>
+    <thead>
+        <tr>
+            <th>Member Name</th>
+            <th>Position</th>
+            <th>Tasks</th>
+        </tr>     
+    </thead>
+    <tbody>
+        
+{% for gr in group.members.all%}
+
+ 
+        <tr> 
+            <td><a href="{% url 'show_profile' gr.profile.id %}">{{gr}}</a></td>
+            <td>{{gr.profile.position}}</td>
+            <td><a href="{% url 'tasks' project.id group.id gr.id %}">Tasks</a></td>
+        </tr>
+{% endfor %}
+
+    </tbody>
+</table>
+
+
+
+
+
+
+{% endblock contant %}
